@@ -5,12 +5,13 @@ This project is a visualizer for various sorting algorithms implemented in C++ u
 Features:
 
 Supported Sorting Algorithms: 
-Bubble Sort
-Selection Sort
-Insertion Sort
-Merge Sort
-Quick Sort
-Heap Sort
+
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
 
 Visual Representation: The data elements are represented as bars on the screen, with color changes indicating comparisons, swaps, and sorted positions.
 
