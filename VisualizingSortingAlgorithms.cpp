@@ -1,49 +1,60 @@
-// VisualizingSortingAlgorithms.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-/*
 #include <iostream>
 #include "raylib.h"
+
+int mainBubble();
 
 using namespace std;
 int main()
 {
     Color Dark_Green = Color{ 20,160,133,255 };
 
-    const int screenWidth = 800;
-    const int screenHeight = 600;
-    int ball_x = 100;
-    int ball_y = 100;
-    int ball_speed_x = 5;
-    int ball_speed_y = 5;
-    int ball_radius = 15;
+    const int screenWidth = 1024;
+    const int screenHeight = 900;
+    
 
     cout << "Hello World!\n";
 
-    InitWindow(screenWidth, screenHeight, "Test raylib Program");
+    InitWindow(screenWidth, screenHeight, "Sorting Visualizer");
     SetTargetFPS(60);
+    
+   /* Image icon = LoadImage("istockphoto - 928418862 - 612x612.jpg");
+    SetWindowIcon(icon);*/
+
+    /*Music backgroundMusic = LoadMusicStream("background.mp3");
+    PlayMusicStream(backgroundMusic);*/
+
 
     while (WindowShouldClose() == false) {
+        Vector2 mousePoint = GetMousePosition();
+        Rectangle buttonBounds = { screenWidth / 2 - 100 , screenHeight / 2,200,50 };
+        bool buttonHover = CheckCollisionPointRec(mousePoint, buttonBounds);
+        bool buttonPressed = buttonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
         BeginDrawing();
-        ClearBackground(Dark_Green);
-        ball_x += ball_speed_x;
-        ball_y += ball_speed_y;
+        ClearBackground(RAYWHITE);
 
-        if (ball_x + ball_radius >= screenWidth || ball_x - ball_radius <= 0)
-        {
-            ball_speed_x *= -1;
+        DrawText("Sorting Visualizer", screenWidth / 2 - MeasureText("Sorting Visualizer", 40) / 2, screenHeight / 2 - 100, 40, BLACK);
+
+        if (buttonHover) {
+            DrawRectangleRec(buttonBounds, LIGHTGRAY);
+        }
+        else {
+            DrawRectangleRec(buttonBounds, GRAY);
         }
 
-        if (ball_y + ball_radius >= screenHeight || ball_y - ball_radius <= 0)
-        {
-            ball_speed_y *= -1;
+        DrawText("Bubble Sort", screenWidth / 2 - MeasureText("Bubble Sort", 20) / 2, screenHeight / 2 + 15, 20, BLACK);
+
+        if (buttonPressed) {
+            //DrawText("Button Pressed!", screenWidth / 2 - MeasureText("Button Pressed!", 20) / 2, screenHeight / 2 + 100, 20, RED);
+            mainBubble();
         }
 
-        DrawCircle(ball_x, ball_y, ball_radius, WHITE);
         EndDrawing();
     }
+   /* UnloadMusicStream(backgroundMusic);
+    CloseAudioDevice();*/
 
     CloseWindow();
     return 0;
 }
 
-*/
