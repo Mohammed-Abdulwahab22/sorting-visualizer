@@ -15,8 +15,4 @@ Supported Sorting Algorithms:
 
 Visual Representation: The data elements are represented as bars on the screen, with color changes indicating comparisons, swaps, and sorted positions.
 
-Interactive Controls: 
-Select the desired sorting algorithm from a menu.
-Adjust the size of the data array to visualize larger or smaller datasets.
-Generate different initial data distributions (e.g., random, pre-sorted, reverse-sorted) for testing purposes.
-Optionally, display additional information like number of comparisons and swaps during the sorting process.
+
