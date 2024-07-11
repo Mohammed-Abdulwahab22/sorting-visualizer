@@ -2,6 +2,7 @@
 #include "raylib.h"
 
 int mainBubble();
+int mainSelection();
 
 using namespace std;
 int main()
@@ -26,27 +27,38 @@ int main()
 
     while (WindowShouldClose() == false) {
         Vector2 mousePoint = GetMousePosition();
-        Rectangle buttonBounds = { screenWidth / 2 - 100 , screenHeight / 2,200,50 };
-        bool buttonHover = CheckCollisionPointRec(mousePoint, buttonBounds);
-        bool buttonPressed = buttonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
+
+        Rectangle bubbleButtonBounds = { screenWidth / 2 - 100 , screenHeight / 2,200,50 };
+        bool bubbleButtonHover = CheckCollisionPointRec(mousePoint, bubbleButtonBounds);
+        bool bubbleButtonPressed = bubbleButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
+        Rectangle selectionButtonBounds = { screenWidth / 2 - 100 , screenHeight / 2 + 70,200,50 };
+        bool selectionButtonHover = CheckCollisionPointRec(mousePoint, selectionButtonBounds);
+        bool selectionButtonPressed = selectionButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
+
+        
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
         DrawText("Sorting Visualizer", screenWidth / 2 - MeasureText("Sorting Visualizer", 40) / 2, screenHeight / 2 - 100, 40, BLACK);
 
-        if (buttonHover) {
-            DrawRectangleRec(buttonBounds, LIGHTGRAY);
-        }
-        else {
-            DrawRectangleRec(buttonBounds, GRAY);
-        }
-
+        DrawRectangleRec(bubbleButtonBounds, bubbleButtonHover ? LIGHTGRAY : GRAY);
         DrawText("Bubble Sort", screenWidth / 2 - MeasureText("Bubble Sort", 20) / 2, screenHeight / 2 + 15, 20, BLACK);
 
-        if (buttonPressed) {
+        DrawRectangleRec(selectionButtonBounds, selectionButtonHover ? LIGHTGRAY : GRAY);
+        DrawText("Selection Sort", screenWidth / 2 - MeasureText("Selection Sort", 20) / 2, screenHeight / 2 + 85, 20, BLACK);
+
+
+        if (bubbleButtonPressed) {
             //DrawText("Button Pressed!", screenWidth / 2 - MeasureText("Button Pressed!", 20) / 2, screenHeight / 2 + 100, 20, RED);
             mainBubble();
+        }
+        if (selectionButtonPressed)
+        {
+            mainSelection();
         }
 
         EndDrawing();
