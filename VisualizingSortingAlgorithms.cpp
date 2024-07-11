@@ -17,16 +17,29 @@ int main()
     cout << "Hello World!\n";
 
     InitWindow(screenWidth, screenHeight, "Sorting Visualizer");
+    InitAudioDevice(); 
     SetTargetFPS(60);
     
-   /* Image icon = LoadImage("istockphoto - 928418862 - 612x612.jpg");
-    SetWindowIcon(icon);*/
+    Image icon = LoadImage("C:/Users/IDEAPAD/Downloads/pngasset.png");
+    if (icon.data != NULL) {
+        SetWindowIcon(icon);
+    }
+    else {
+        cout << "Failed to load image!" << endl;
+    }
 
-    /*Music backgroundMusic = LoadMusicStream("background.mp3");
-    PlayMusicStream(backgroundMusic);*/
+    Music backgroundMusic = LoadMusicStream("C:/Users/IDEAPAD/Downloads/ATC - Around The World (La La La La La) (Radio Version) [2000].mp3");
+    if (backgroundMusic.ctxData != NULL) {
+        PlayMusicStream(backgroundMusic);
+
+    }
+    else {
+        cout << "Failed to load music!" << endl;
+    }
 
 
     while (WindowShouldClose() == false) {
+        UpdateMusicStream(backgroundMusic); 
         Vector2 mousePoint = GetMousePosition();
 
 
@@ -76,8 +89,8 @@ int main()
 
         EndDrawing();
     }
-   /* UnloadMusicStream(backgroundMusic);
-    CloseAudioDevice();*/
+    UnloadMusicStream(backgroundMusic);
+    CloseAudioDevice();
 
     CloseWindow();
     return 0;
