@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BubbleSort.cpp" />
+    <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
     <ClCompile Include="VisualizingSortingAlgorithms.cpp" />
   </ItemGroup>

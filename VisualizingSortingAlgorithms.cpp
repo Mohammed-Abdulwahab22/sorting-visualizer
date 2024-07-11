@@ -3,6 +3,7 @@
 
 int mainBubble();
 int mainSelection();
+int mainInsertion();
 
 using namespace std;
 int main()
@@ -37,6 +38,11 @@ int main()
         bool selectionButtonHover = CheckCollisionPointRec(mousePoint, selectionButtonBounds);
         bool selectionButtonPressed = selectionButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
 
+        Rectangle insertionButtonBounds = { screenWidth / 2 - 100 , screenHeight / 2 + 140,200,50 };
+        bool insertionButtonHover = CheckCollisionPointRec(mousePoint, insertionButtonBounds);
+        bool insertionButtonPressed = insertionButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
+
 
         
 
@@ -51,6 +57,9 @@ int main()
         DrawRectangleRec(selectionButtonBounds, selectionButtonHover ? LIGHTGRAY : GRAY);
         DrawText("Selection Sort", screenWidth / 2 - MeasureText("Selection Sort", 20) / 2, screenHeight / 2 + 85, 20, BLACK);
 
+        DrawRectangleRec(insertionButtonBounds, insertionButtonHover ? LIGHTGRAY : GRAY);
+        DrawText("Insertion Sort", screenWidth / 2 - MeasureText("Insertion Sort", 20) / 2, screenHeight / 2 + 155, 20, BLACK);
+
 
         if (bubbleButtonPressed) {
             //DrawText("Button Pressed!", screenWidth / 2 - MeasureText("Button Pressed!", 20) / 2, screenHeight / 2 + 100, 20, RED);
@@ -59,6 +68,10 @@ int main()
         if (selectionButtonPressed)
         {
             mainSelection();
+        }
+        if (insertionButtonPressed)
+        {
+            mainInsertion();
         }
 
         EndDrawing();
