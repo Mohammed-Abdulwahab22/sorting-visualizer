@@ -4,6 +4,7 @@
 int mainBubble();
 int mainSelection();
 int mainInsertion();
+int mainMerge();
 
 using namespace std;
 int main()
@@ -55,6 +56,11 @@ int main()
         bool insertionButtonHover = CheckCollisionPointRec(mousePoint, insertionButtonBounds);
         bool insertionButtonPressed = insertionButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
 
+        Rectangle mergeButtonBounds = { screenWidth / 2 - 100 , screenHeight / 2 + 210,200,50 };
+        bool mergeButtonHover = CheckCollisionPointRec(mousePoint, mergeButtonBounds);
+        bool mergeButtonPressed = mergeButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
+
 
 
         
@@ -73,9 +79,11 @@ int main()
         DrawRectangleRec(insertionButtonBounds, insertionButtonHover ? LIGHTGRAY : GRAY);
         DrawText("Insertion Sort", screenWidth / 2 - MeasureText("Insertion Sort", 20) / 2, screenHeight / 2 + 155, 20, BLACK);
 
+        DrawRectangleRec(mergeButtonBounds, mergeButtonHover ? LIGHTGRAY : GRAY);
+        DrawText("Merge Sort", screenWidth / 2 - MeasureText("Merge Sort", 20) / 2, screenHeight / 2 + 225, 20, BLACK);
+
 
         if (bubbleButtonPressed) {
-            //DrawText("Button Pressed!", screenWidth / 2 - MeasureText("Button Pressed!", 20) / 2, screenHeight / 2 + 100, 20, RED);
             mainBubble();
         }
         if (selectionButtonPressed)
@@ -85,6 +93,10 @@ int main()
         if (insertionButtonPressed)
         {
             mainInsertion();
+        }
+        if (mergeButtonPressed)
+        {
+            mainMerge();
         }
 
         EndDrawing();
