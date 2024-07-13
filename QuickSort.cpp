@@ -82,7 +82,6 @@ int mainQuick()
     bool swapping = false;
     bool sorted = false;
 
-    // Sort once initially
     QuickSort(bars, 0, numBars - 1, currentIndex, nextIndex, swapping, sorted);
 
     while (!WindowShouldClose()) {
