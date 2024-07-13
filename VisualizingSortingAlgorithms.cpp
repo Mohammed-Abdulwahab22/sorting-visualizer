@@ -5,6 +5,7 @@ int mainBubble();
 int mainSelection();
 int mainInsertion();
 int mainMerge();
+int mainQuick();
 
 using namespace std;
 int main()
@@ -60,6 +61,10 @@ int main()
         bool mergeButtonHover = CheckCollisionPointRec(mousePoint, mergeButtonBounds);
         bool mergeButtonPressed = mergeButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
 
+        Rectangle quickButtonBounds = { screenWidth / 2 - 100 , screenHeight / 2 + 280,200,50 };
+        bool quickButtonHover = CheckCollisionPointRec(mousePoint, quickButtonBounds);
+        bool quickButtonPressed = quickButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
 
 
 
@@ -82,6 +87,9 @@ int main()
         DrawRectangleRec(mergeButtonBounds, mergeButtonHover ? LIGHTGRAY : GRAY);
         DrawText("Merge Sort", screenWidth / 2 - MeasureText("Merge Sort", 20) / 2, screenHeight / 2 + 225, 20, BLACK);
 
+        DrawRectangleRec(quickButtonBounds, quickButtonHover ? LIGHTGRAY : GRAY);
+        DrawText("Quick Sort", screenWidth / 2 - MeasureText("Quick Sort", 20) / 2, screenHeight / 2 + 295, 20, BLACK);
+
 
         if (bubbleButtonPressed) {
             mainBubble();
@@ -98,7 +106,10 @@ int main()
         {
             mainMerge();
         }
-
+        if (quickButtonPressed)
+        {
+            mainQuick();
+        }
         EndDrawing();
     }
     UnloadMusicStream(backgroundMusic);

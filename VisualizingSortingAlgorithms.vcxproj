@@ -130,6 +130,7 @@
     <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="MergeSorting.cpp" />
+    <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
     <ClCompile Include="VisualizingSortingAlgorithms.cpp" />
   </ItemGroup>
