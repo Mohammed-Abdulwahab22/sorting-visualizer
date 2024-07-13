@@ -16,4 +16,4 @@ Supported Sorting Algorithms:
 Visual Representation: The data elements are represented as bars on the screen, with color changes indicating comparisons, swaps, and sorted positions.
 
 
-![Alt Text](Screenshot2024-07-07153755.png)
+![Alt Text](Screenshot2024-07-07153755.png.png)
