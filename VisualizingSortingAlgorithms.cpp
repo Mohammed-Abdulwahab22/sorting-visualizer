@@ -6,6 +6,8 @@ int mainSelection();
 int mainInsertion();
 int mainMerge();
 int mainQuick();
+int mainHeap();
+
 
 using namespace std;
 int main()
@@ -66,6 +68,11 @@ int main()
         bool quickButtonPressed = quickButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
 
 
+        Rectangle heapButtonBounds = { screenWidth / 2 - 100 , screenHeight / 2 + 350,200,50 };
+        bool heapButtonHover = CheckCollisionPointRec(mousePoint, heapButtonBounds);
+        bool heapButtonPressed = heapButtonHover && IsMouseButtonReleased(MOUSE_LEFT_BUTTON);
+
+
 
 
         
@@ -91,6 +98,10 @@ int main()
         DrawText("Quick Sort", screenWidth / 2 - MeasureText("Quick Sort", 20) / 2, screenHeight / 2 + 295, 20, BLACK);
 
 
+        DrawRectangleRec(heapButtonBounds, heapButtonHover ? LIGHTGRAY : GRAY);
+        DrawText("Heap Sort", screenWidth / 2 - MeasureText("Heap Sort", 20) / 2, screenHeight / 2 + 365, 20, BLACK);
+
+
         if (bubbleButtonPressed) {
             mainBubble();
         }
@@ -109,6 +120,10 @@ int main()
         if (quickButtonPressed)
         {
             mainQuick();
+        }
+        if (heapButtonPressed)
+        {
+            mainHeap();
         }
         EndDrawing();
     }
