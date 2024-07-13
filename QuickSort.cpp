@@ -82,11 +82,12 @@ int mainQuick()
     bool swapping = false;
     bool sorted = false;
 
-    QuickSort(bars, 0, numBars - 1, currentIndex, nextIndex, swapping, sorted);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(YELLOW);
+        QuickSort(bars, 0, numBars - 1, currentIndex, nextIndex, swapping, sorted);
+
         DrawBarsQuick(bars, currentIndex, nextIndex, swapping);
         DrawTextInfoQuick(currentIndex, nextIndex, swapping, sorted);
         EndDrawing();
