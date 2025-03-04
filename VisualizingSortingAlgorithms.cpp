@@ -29,18 +29,9 @@ int main()
         cout << "Failed to load image!" << endl;
     }
 
-    Music backgroundMusic = LoadMusicStream("C:/Users/IDEAPAD/Downloads/ATC - Around The World (La La La La La) (Radio Version) [2000].mp3");
-    if (backgroundMusic.ctxData != NULL) {
-        PlayMusicStream(backgroundMusic);
-
-    }
-    else {
-        cout << "Failed to load music!" << endl;
-    }
 
 
     while (WindowShouldClose() == false) {
-        UpdateMusicStream(backgroundMusic); 
         Vector2 mousePoint = GetMousePosition();
 
 
@@ -101,7 +92,6 @@ int main()
 
         EndDrawing();
     }
-    UnloadMusicStream(backgroundMusic);
     CloseAudioDevice();
 
     CloseWindow();
